@@ -16,6 +16,7 @@ require 'connect.php';
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
   <link rel="stylesheet" href="css/topnav.css">
   <link rel="stylesheet" href="1.css">
+  <script src = js/cities.js></script>
   <style type="text/css">
     .nested {
       display: none;
@@ -91,67 +92,29 @@ require 'connect.php';
 	            <option value="IT">IT</option>
 	            <option value="ADMINISTRATIVE">Administrative</option>
 	            <option value="OTHERS">Others</option>
-	          </select> <br><br>
+	          </select>
+          </td>
+            <br><br>
 
 					<td><label>Marital Status</label><select name = "marital" class="form-control">
 	           <option value="SINGLE">Single</option>
 	           <option value="MARRIED">Married</option>
 	          </select>
+          </td>
 
-		<td><label>States</label><select name = "states" class='form-control'>
-	<option value="">---Select---</option>
-		<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-		<option value="Andhra Pradesh">Andhra Pradesh</option>
-		<option value="Arunachal Pradesh">Arunachal Pradesh</option>
-		<option value="Assam">Assam</option>
-		<option value="Bihar">Bihar</option>
-		<option value="Chandigarh">Chandigarh</option>
-		<option value="Chhattisgarh">Chhattisgarh</option>
-		<option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
-		<option value="Daman and Diu">Daman and Diu</option>
-		<option value="Delhi">Delhi</option>
-		<option value="Goa">Goa</option>
-		<option value="Gujarat">Gujarat</option>
-		<option value="Haryana">Haryana</option>
-		<option value="Himachal Pradesh">Himachal Pradesh</option>
-		<option value="Jammu and Kashmir">Jammu and Kashmir</option>
-		<option value="Jharkhand">Jharkhand</option>
-		<option value="Karnataka">Karnataka</option>
-		<option value="Kerala">Kerala</option>
-		<option value="Lakshadweep">Lakshadweep</option>
-		<option value="Madhya Pradesh">Madhya Pradesh</option>
-		<option value="Maharashtra">Maharashtra</option>
-		<option value="Manipur">Manipur</option>
-		<option value="Meghalaya">Meghalaya</option>
-		<option value="Mizoram">Mizoram</option>
-		<option value="Nagaland">Nagaland</option>
-		<option value="Orissa">Orissa</option>
-		<option value="Pondicherry">Pondicherry</option>
-		<option value="Punjab">Punjab</option>
-		<option value="Rajasthan">Rajasthan</option>
-		<option value="Sikkim">Sikkim</option>
-		<option value="Tamil Nadu">Tamil Nadu</option>
-		<option value="Tripura">Tripura</option>
-		<option value="Uttaranchal">Uttaranchal</option>
-		<option value="Uttar Pradesh">Uttar Pradesh</option>
-		<option value="West Bengal">West Bengal</option>
-		</select>
-		</br>
+		<td><label>States</label>
+      <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+    </td>
+    </br>
 		<td><label>City</label>
-      <select name = "city" class='form-control'>
-	       <option value="">Select City</option>
-		     <option value="LUCKNOW">Lucknow</option>
-		     <option value="ALLAHABAD">Allahabad</option>
-		     <option value="GONDA">Gonda</option>
-		     <option value="KANPUR">Kanpur</option>
-		     <option value="VARANASI">Varanasi</option>
-		     <option value="AGRA">Agra</option>
-		  </select>
+      <select id ="state" class="form-control" required></select>
+      <script language="javascript">print_state("sts");</script>
 			<td><label>Food habit</label>
         <select name = "food" class='form-control'>
 	         <option value="Veg">Vegetarian</option>
 	         <option value="NonVeg">Non-Vegetarian</option>
 	      </select>
+      </td>
 			</tr>
 			</table>
 
