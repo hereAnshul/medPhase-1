@@ -61,12 +61,7 @@ require 'connect.php';
 					<td><label>Name</label><input type="text" class="form-control" value="<?php echo $_SESSION['p_name'];?>" name = "pname" readonly>
 				  <td><label>Age</label><input type="Number" class="form-control" value="<?php echo $_SESSION['p_age']?>" name="age">
 				  <td><label>Sex</label><input type="text" class="form-control" value="<?php echo $_SESSION['p_sex'] ?>" readonly>
-            <!--<select name = "sex" class="form-control">
-              <option value="">---Select---</option>
-	            <option value="MALE">Male</option>
-	            <option value="FEMALE">Female</option>
-	            <option value="OTHERS">Others</option>
-            </select>-->
+
 				  <td><label>Religion</label>
             <select name = "religion" class="form-control">
               <option value="">---Select---</option>
