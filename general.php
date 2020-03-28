@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 if($_SESSION["docid"]=="" || $_SESSION['p_id']=="" || $_SESSION['p_name']=="" ||$_SESSION['caseid']==''){
-  echo "<script> alert('Bad Bad Boy');
+  echo "<script> alert('Bad Bad Boy'); //LOL haha
       location = '404.php';
           </script>";
 }
@@ -107,7 +107,7 @@ require 'connect.php';
     </td>
     </br>
 		<td><label>City</label>
-      <select id ="state" class="form-control" required></select>
+      <select id ="state" name = "city" class="form-control" required></select>
       <script language="javascript">print_state("sts");</script>
 			<td><label>Food habit</label>
         <select name = "food" class='form-control'>
@@ -268,9 +268,9 @@ require 'connect.php';
         </ul>
      </div>
  	</div>
+<br>
 
-
-  <br>
+  <!--
     <div class="col-md-6">
     <h3>Trachea</h3>
 
@@ -289,6 +289,7 @@ require 'connect.php';
   </div>
 
 </div>
+-->
 </div>
 
 
@@ -296,6 +297,11 @@ require 'connect.php';
 
   <br>
   <div class="row">
+  <br><br>
+    <input type = "submit" class="btn btn-primary" value = "Next">
+    </form>
+  </div>
+  <!--
   <div class="col-md-6">
   <h3>Lower Limb</h3>
   <label><b>Oedema(+ve/-ve)</b></label><input type="text" class="form-control" name="central" value=" ">
@@ -352,11 +358,9 @@ require 'connect.php';
 
 		    	<div><label><b>Epitrochlear N(+ve/-ve)</b></label><input type="text" class="form-control" name="epitrochlearn" value=" "><br/></div>
 </div>
-</div>
 
-    <br><br>
-    <input type = "submit" class="btn btn-primary" value = "Next">
-    </form>
+-->
+    
 	<script>
 		function changeClass11(){
           document.getElementById("main11").classList.toggle('active');
