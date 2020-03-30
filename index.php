@@ -15,9 +15,9 @@ if(isset($_POST['login']))
   $res = $collection->find(['_id' => $id]);
   foreach($res as $details)
   {
-    $password = $details['pass'];
-    $name =  $details['name'];
-    $hospital_id =  $details['hospital'];
+    $password = $details['password'];
+    $name =  $details['docname'];
+    $hospital_id =  $details['hospital_id'];
   }
   if(strcmp($password,$pass)==0)
     {
