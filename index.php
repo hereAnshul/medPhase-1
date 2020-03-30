@@ -19,7 +19,7 @@ if(isset($_POST['login']))
     $name =  $details['docname'];
     $hospital_id =  $details['hospital_id'];
   }
-  if(strcmp($password,$pass)==0)
+  if(strcmp($password, $pass)==0)
     {
       $_SESSION['docid'] = $id;
       $_SESSION['docname'] = $name;

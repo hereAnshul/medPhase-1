@@ -41,11 +41,11 @@ for($i=0;$i<9;$i++)
 		{
 			if($r == 0)
 			{
-				$collection->insertOne(['_id' => 'ASSOCIATED SYMPTOMS']);
+				$collection->insertOne(['_id' => 'VISASSOCIATEDSYMPTOMS']);
 				$r = 1;
 			}
 			$abc = "a".$m;
-			$collection->updateOne(['_id'=>'ASSOCIATED SYMPTOMS'],['$set' => [ $abc => strtoupper($_POST[$str])]]);
+			$collection->updateOne(['_id'=>'VISASSOCIATEDSYMPTOMS'],['$set' => [ $abc => strtoupper($_POST[$str])]]);
 			$m+=1;
 		}
 	}

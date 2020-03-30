@@ -38,9 +38,9 @@ for($i=0;$i<5;$i++){
   $str = "b".$i;
   if(isset($_POST[$str])){
     if($k==0){
-      $collection->insertOne(['_id' => 'ASSOSIATEDSYMPTIOMS']);
+      $collection->insertOne(['_id' => 'RELASSOSIATEDSYMPTIOMS']);
     }$k=1;
-    $collection -> updateOne(['_id' => 'ASSOSIATEDSYMPTIOMS'], ['$set' => [$str => $_POST[$str]]]);
+    $collection -> updateOne(['_id' => 'RELASSOSIATEDSYMPTIOMS'], ['$set' => [$str => $_POST[$str]]]);
   }
 }
 
@@ -51,10 +51,10 @@ for($i=0;$i<4;$i++){
 	{
 		if($k==0)
 		{
-			$collection->insertOne(['_id' => 'CHARACTER']);
+			$collection->insertOne(['_id' => 'RELCHARACTER']);
 			$k=1;
 		}
-		$collection->updateOne(['_id'=>'CHARACTER'], ['$set' => [$str => $_POST[$str]]]);
+		$collection->updateOne(['_id'=>'RELCHARACTER'], ['$set' => [$str => $_POST[$str]]]);
 	}
 }
 

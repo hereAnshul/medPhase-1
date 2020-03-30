@@ -50,7 +50,7 @@ if(isset($_POST['set']))
 <body>
 <div class="login-page">
   <div class="form">
-    <form  method="post" target="setpass.php">
+    <form  method="post" target="_self">
       <p>If your number is +91XXXXXX<?php echo substr($_SESSION['phone'], -4);?></p>
         <input type = "submit" name = "gotp" id = "got" value = "Get OTP"/>
 	      <input type="text" name="otp" placeholder="Enter OTP"/>
