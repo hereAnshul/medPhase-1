@@ -19,7 +19,7 @@ if(isset($_POST['register']))
   }
   $hospital_id = $_POST['hid'];
   $cursor = $collection->find();
-  $collection->insertOne(['_id'=>(string)$id,'name'=>$name,'pass'=>$pass, 'hospital'=>$hospital_id]);
+  $collection->insertOne(['_id'=>(string)$id,'docname'=>$name,'password'=>$pass, 'hospital'=>$hospital_id]);
     echo "<script> alert('Welcome Dr. $name, Registeration Complete.');
           location = 'index.php';
         </script>";
