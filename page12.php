@@ -56,60 +56,68 @@ require 'connect.php';
     <hr>
 	<ul>
       <h4>Optic Disc</h4>
-	  <div><input type="checkbox" name=" pseudopapillitis" value=" Pseudopapillitis"> Pseudopapillitis<br/></div>
-      <div><input type="checkbox" name=" papilloedema" value=" Papilloedema"> Papilloedema<br/></div>
-	  <div><input type="checkbox" name=" neuroretinitis" value=" Neuroretinitis"> Neuroretinitis<br/></div>
-      <div><input type="checkbox" name=" neovascularization" value=" Neovascularization">
-      	 Neovascularization<br/></div>
-
-	  <div><input type="checkbox" value="Color" name="color" onclick="changeClass1()"> Color</div>
+	     <div><input type="checkbox" name="opd0" value=" Pseudopapillitis"> Pseudopapillitis<br/></div>
+       <div><input type="checkbox" name="opd1" value=" Papilloedema"> Papilloedema<br/></div>
+	     <div><input type="checkbox" name="opd2" value=" Neuroretinitis"> Neuroretinitis<br/></div>
+       <div><input type="checkbox" name="opd3" value=" Neovascularization"> Neovascularization<br/></div>
+	     <div><input type="checkbox" name="color" value="Color" onclick="changeClass1()"> Color</div>
         <ul class="nested" id="main1">
-          <div><input type="checkbox" name="pink" value="Pink"> Pink<br/></div>
-          <div><input type="checkbox" name="white" value="White"> White<br/></div>
-		</ul>
-	  <div><input type="checkbox" name="polar" value="Polar" onclick="changeClass2()"> Polar<br/></div>
+          <div><input type="radio" name="opd4" value="Pink"> Pink<br/></div>
+          <div><input type="radio" name="opd4" value="White"> White<br/></div>
+		    </ul>
+	     <div><input type="checkbox" name="polar" value="Polar" onclick="changeClass2()"> Polar<br/></div>
         <ul class="nested" id="main2">
-          <div><input type="checkbox" name="partial" value="Partial"> Partial<br/></div>
-          <div><input type="checkbox" name="total" value="Total"> Total<br/></div>
-	    </ul>
-      <div><input type="checkbox" name="champagnecorkappearance" value="Champagne cork appearance"> Champagne cork appearance<br/></div>
-      <div><input type="checkbox" name="atrophy" value="Atrophy"> Atrophy <br/></div>
-      <div><input type="checkbox" name="lamellardotsign" value="Lamellar dot sign"> Lamellar dot sign<br/></div>
-      <div><input type="checkbox" name="thinningofneuroretinalrim" value="Thinning of neuroretinal rim"> Thinning of neuroretinal rim<br/></div>
-	  <br/>
+          <div><input type="radio" name="opd5" value="PartialPolar"> Partial<br/></div>
+          <div><input type="radio" name="opd5" value="TotalPolar"> Total<br/></div>
+	      </ul>
+      <div><input type="checkbox" name="opd6" value="ChampagneCorkAppearance"> Champagne cork appearance<br/></div>
+      <div><input type="checkbox" name="opd7" value="Atrophy"> Atrophy <br/></div>
+      <div><input type="checkbox" name="opd8" value="LamellarDotSign"> Lamellar dot sign<br/></div>
+      <div><input type="checkbox" name="opd9" value="ThinningNeuroretinalRim"> Thinning of neuroretinal rim<br/></div>
+      <div><input type="checkbox" name="opd10" value="BlurringDiscMargin"> Blurring of disc margin<br/></div>
+    <br/>
 	  <hr>
+
+<!--
+
+    turn out that Cup is to disc ratio is an important factor in the diagnosis of glaucoma
+    not solely. as it increases with age as well..
+    0.5 or less is considered normal
+    above 0.5 tests needed to confirm glaucoma
+-->
+
       <h4>Physiological Cup</h4>
-      <div><input type="checkbox" name="sudden" value="Sudden"> Asymmetry<br/></div>
-	  <label>Cup Disc ratio: <input type="text" placeholder="cupdiscratio" name="Cup Disc ratio" id="Cup Disc ratio"/></label>
+	  <label>Cup Disc ratio: <input type="number" placeholder="0 - 1" name="CupDiscRatio" min="0" step="0.01" max="1"/></label>
       <br/><hr>
-	  <h4>Edge of disc</h4>
-      <div><input type="checkbox" name="blurringofdiscmargin" value="Blurring of disc margin"> Blurring of disc margin<br/></div>
-      <br/><hr>
+
 	  <h4>Retinal Vessel</h4>
-      <div><input type="checkbox" name="pulsationof   " value="Pulsation of    "> Pulsation of             <br/></div>
-      <div><input type="checkbox" name="bonnetsign" value="Bonnet Sign"> Bonnet Sign<br/></div>
-	  <div><input type="checkbox" name="marcuscreasesign     " value="Marcus Crease Sign     "> Marcus Crease Sign               <br/></div>
-	  <div><input type="checkbox" name="rightangledeflectionatavcrossing" value="Right angle deflection at AV crossing"> Right angle deflection at AV crossing<br/></div>
-	  <div><input type="checkbox" name="copperwire" value="Copper-wire"> Copper-wire<br/></div>
-	  <div><input type="checkbox" name="silverwire" value="Silver-wire"> Silver-wire<br/></div>
-	  <div><input type="checkbox" name="microaneurysm" value="Microaneurysm"> Microaneurysm<br/></div>
-	  <div><input type="checkbox" name="tortuousveinandengorged" value="Tortuous vein and engorged"> Tortuous vein and engorged<br/></div>
+      <div><input type="checkbox" name="retv0 " value="Pulsation"> Pulsation<br/></div>
+      <div><input type="checkbox" name="retv1" value="BonnetSign"> Bonnet Sign<br/></div>
+	    <div><input type="checkbox" name="retv2" value="MarcusCreaseSign"> Marcus Crease Sign<br/></div>
+	    <div><input type="checkbox" name="retv3" value="90DeflectionAtAVCrossing"> Right angle deflection at AV crossing<br/></div>
+	    <div><input type="checkbox" name="retv4" value="Copper-wire"> Copper-wire<br/></div>
+  	  <div><input type="checkbox" name="retv5" value="Silver-wire"> Silver-wire<br/></div>
+  	  <div><input type="checkbox" name="retv6" value="Microaneurysm"> Microaneurysm<br/></div>
+	    <div><input type="checkbox" name="retv7" value="TortuousVeinEngorged"> Tortuous vein and engorged<br/></div>
 	  <br/><hr>
+
 	  <h4>Macular Region</h4>
-      <div><input type="checkbox" name="macularstar" value="Macular Star"> Macular Star<br/></div>
-	  <div><input type="checkbox" name="cherryredspot" value="Cherry red spot"> Cherry red spot<br/></div>
-	  <div><input type="checkbox" name="drusens" value="Drusens">Drusens<br/></div>
-	  <div><input type="checkbox" name="cystoidmaculardegeneration" value="Cystoid Macular Degeneration"> Cystoid Macular Degeneration<br/></div>
-	  <div><input type="checkbox" name="neovascularization" value="Neovascularization"> Neovascularization<br/></div>
-	  <div><input type="checkbox" name="honeycombappearance" value="Honeycomb Appearance"> Honeycomb Appearance<br/></div>
+     <div><input type="checkbox" name="mcr0" value="MacularStar"> Macular Star<br/></div>
+	   <div><input type="checkbox" name="mcr1" value="CherryRedSpot"> Cherry red spot<br/></div>
+	   <div><input type="checkbox" name="mcr2" value="Drusens">Drusens<br/></div>
+ 	   <div><input type="checkbox" name="mcr3" value="CystoidMacularDegeneration"> Cystoid Macular Degeneration<br/></div>
+	   <div><input type="checkbox" name="mcr4" value="Neovascularization"> Neovascularization<br/></div>
+	   <div><input type="checkbox" name="mcr5" value="HoneycombAppearance"> Honeycomb Appearance<br/></div>
       <br/><hr>
+
 	  <h4>Hemorrhage in Retina</h4>
-      <div><input type="checkbox" name="flameshaped" value="Flame/Splinter shaped"> Flame/Splinter shaped<br/></div>
-	  <div><input type="checkbox" name="dotblot" value="Dot Blot"> Dot Blot<br/></div>
-	  <div><input type="checkbox" name="retrohyaloid" value="Retrohyaloid"> Retrohyaloid<br/></div>
-	  <div><input type="checkbox" name="subretinal" value="Sub Retinal"> Sub Retinal<br/></div>
-	  <div><input type="checkbox" name="viterous" value="Viterous"> Viterous<br/></div>
-      <br/><hr>
+     <div><input type="checkbox" name="hemr0" value="Flame/Splinter shaped"> Flame/Splinter shaped<br/></div>
+	   <div><input type="checkbox" name="hemr1" value="Dot Blot"> Dot Blot<br/></div>
+	   <div><input type="checkbox" name="hemr2" value="Retrohyaloid"> Retrohyaloid<br/></div>
+	   <div><input type="checkbox" name="hemr3" value="Sub Retinal"> Sub Retinal<br/></div>
+	   <div><input type="checkbox" name="hemr4" value="Viterous"> Viterous<br/></div>
+    <br/><hr>
+
 	  <h2>Final Diagonosis</h2>
           <ol>
 
