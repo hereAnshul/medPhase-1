@@ -97,6 +97,27 @@ require 'connect.php';
           </div>
         </div>
 
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+              <h4 class="my-0 font-weight-normal">Data Consent Section</h4>
+            </div>
+            <div class="card-body">
+
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Consult a doctor, understand and then give consent.
+          You can un-subscribe from it whenever you like.</li>
+              </ul>
+              <a style="text-decoration:none" href = "#"><button type="button" class="btn btn-lg btn-block btn-primary">You have my CONSENT</button></a>
+              <!-- yaha pe kuch dekhna hoga..on click maybe form jaisa kuch..term and condirtion type and multi factor check k baad.
+              in the end..
+              hoga ye ki ye button mine kr dega block.. aur phir chain update kr dega..
+              we will do this again for the sake of prototypical demonstration
+            -->
+
+            </div>
+          </div>
+
+
       </div>
 
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
