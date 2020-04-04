@@ -30,7 +30,7 @@ require 'connect.php';
 </head>
   <body>
      <div class="container">
-	<form action = "page11.php" action = "post">
+	<form action = "lidCheck.php" method="post">
     <table width=100%>
       <tr><td width=40%><h2>Lids</h2></td>
           <td width="35%"></td>
@@ -56,138 +56,134 @@ require 'connect.php';
       <ul>
 
       <h4>Position</h4>
-		<div><input type="checkbox" name="normal" value="Normal"> Normal<br/></div>
-        <div><input type="checkbox" value="Ptosis" name="ptosis" onclick="changeClass1()"> Ptosis</div>
+		<div><input type="checkbox" name="lidpos" value="Normal"> Normal<br/></div>
+        <div><input type="checkbox" value="Ptosis" name="lidpos" onclick="changeClass1()"> Ptosis</div>
         <ul class="nested" id="main1">
           <div><input type="checkbox" name="complete" value="Complete"> Complete<br/></div>
           <div><input type="checkbox" name="partial" value="Partial"> Partial<br/></div>
         </ul>
       <br/><hr>
       <h4>Movement</h4>
-      <div><input type="checkbox" name="synchronous" value="Synchronous"> Synchronous<br/></div>
-      <div><input type="checkbox" name="lidlag" value="LidLag"> Lid-Lag<br/></div>
+      <div><input type="checkbox" name="lidmov" value="Synchronous"> Synchronous<br/></div>
+      <div><input type="checkbox" name="lidmov" value="LidLag"> Lid-Lag<br/></div>
       <br/><hr>
       <h4>Lid Margin</h4>
-      <div><input type="checkbox" name="normal" value="Burning"> Burning<br/></div>
-      <div><input type="checkbox" name="eutropian" value="Eutropian"> Eutropian<br/></div>
-      <div><input type="checkbox" name="ectropian" value="Ectropian"> Ectropian<br/></div>
-      <div><input type="checkbox" name="swelling" value="Swelling"> Swelling<br/></div>
-      <div><input type="checkbox" name="stye" value="Stye"> Stye<br/></div>
-      <div><input type="checkbox" name="papilloma" value="Papilloma"> Papilloma<br/></div>
-      <div><input type="checkbox" name="marginalcholozion" value="marginalcholozion"> Marginal Cholozion<br/></div>
+      <div><input type="checkbox" name="lmar0" value="Burning"> Burning<br/></div>
+      <div><input type="checkbox" name="lmar1" value="Eutropian"> Eutropian<br/></div>
+      <div><input type="checkbox" name="lmar2" value="Ectropian"> Ectropian<br/></div>
+      <div><input type="checkbox" name="lmar3" value="Swelling"> Swelling<br/></div>
+      <div><input type="checkbox" name="lmar4" value="Stye"> Stye<br/></div>
+      <div><input type="checkbox" name="lmar5" value="Papilloma"> Papilloma<br/></div>
+      <div><input type="checkbox" name="lmar6" value="MarginalCholozion"> Marginal Cholozion<br/></div>
 	  <br/><hr>
       <h4>Eye Lashes</h4>
-      <div><input type="checkbox" name="trichiasis" value="Trichiasis"> Trichiasis<br/></div>
-      <div><input type="checkbox" name="distichiasis" value="distichiasis"> Distichiasis<br/></div>
-      <div><input type="checkbox" name="madrosis" value="Madrosis"> Madrosis<br/></div>
-      <div><input type="checkbox" name="poliosis" value="Poliosis"> Poliosis<br/></div>
-      <div><input type="checkbox" name="stye" value="Stye" >Stye<br/></div>
-       <div><input type="checkbox" value="Scales" name="scales"> Scales at Lid Margin</div>
+      <div><input type="checkbox" name="el0" value="Trichiasis"> Trichiasis<br/></div>
+      <div><input type="checkbox" name="el1" value="distichiasis"> Distichiasis<br/></div>
+      <div><input type="checkbox" name="el2" value="Madrosis"> Madrosis<br/></div>
+      <div><input type="checkbox" name="el3" value="Poliosis"> Poliosis<br/></div>
+      <div><input type="checkbox" name="el4" value="Stye"> Stye<br/></div>
+       <div><input type="checkbox" value="Scales" name="el5"> Scales at Lid Margin</div>
       	<br/>
 		<hr>
       <h4>Palpebral aperture</h4>
-      <div><input type="checkbox" name="normal" value="Normal"> Normal<br/></div>
-      <div><input type="checkbox" name="ankylobelpahron" value="Ankylobelpahron"> Ankylobelpahron<br/></div>
-      <div><input type="checkbox" name="blepharophimosis" value="Blepharophimosis"> Blepharophimosis<br/></div>
-      <div><input type="checkbox" name="verticalnarrow" value="VerticalNarrow"> Vertical Narrow<br/></div>
-      <div><input type="checkbox" name="verticalwide" value="VerticalWide"> Vertical-Wide<br/></div>
+      <div><input type="checkbox" name="pa0" value="Normal"> Normal<br/></div>
+      <div><input type="checkbox" name="pa1" value="Ankylobelpahron"> Ankylobelpahron<br/></div>
+      <div><input type="checkbox" name="pa2" value="Blepharophimosis"> Blepharophimosis<br/></div>
+      <div><input type="checkbox" name="pa3" value="VerticalNarrow"> Vertical Narrow<br/></div>
+      <div><input type="checkbox" name="pa4" value="VerticalWide"> Vertical-Wide<br/></div>
       <br/><hr>
       <h4>Lacrimal Apparatus</h4>
-
-            <div><input type="checkbox" name="lacrimalgland" value="Lacrimalgland"> Swelling of Lacrimal gland<br/></div>
-            <div><input type="checkbox" name="nesolacrimal" value="Nesolacrimal"> Nasolacrimal Duct Blockage<br/></div>
+            <div><input type="checkbox" name="la0" value="GlandSwelling"> Swelling of Lacrimal gland<br/></div>
+            <div><input type="checkbox" name="la1" value="NesolacrimalBlockage"> Nasolacrimal Duct Blockage<br/></div>
         <hr>
-      <h4>Conjuctiva</h4>
+      <h4>Conjunctiva</h4>
 
 	  <div><input type="checkbox" value="Chemosis" name="chemosis" onclick="changeClass2()"> Chemosis</div>
         <ul class="nested" id="main2">
-          <div><input type="checkbox" name="membranous" value="Membranous"> Membranous<br/></div>
-          <div><input type="checkbox" name="pseudomembranous" value="Pseudomembranous"> Pseudomembranous<br/></div>
-		  <div><input type="checkbox" name="nonmembranous" value="nonmembranous"> Non - Membranous<br/></div>
+          <div><input type="radio" name="chemosisType" value="Membranous"> Membranous<br/></div>
+          <div><input type="radio" name="chemosisType" value="Pseudomembranous"> Pseudomembranous<br/></div>
+		  <div><input type="radio" name="chemosisType" value="NonMembranous"> Non - Membranous<br/></div>
        </ul>
 
    <div><input type="checkbox" value="Congestion" name="congestion" onclick="changeClass3()"> Congestion</div>
         <ul class="nested" id="main3">
-		<div><input type="checkbox" name="conjuctivalvessels" value="ConjuctivalVessels"> Conjuctival-Veins<br/></div>
-		  <div><input type="checkbox" name="ciliaryveins" value="nonmembranous"> Ciliary-Veins<br/></div>
-		  <div><input type="checkbox" name="episcleralveins" value="EpiscleralVeins"> Episcleral-Veins<br/></div>
+		<div><input type="radio" name="veins" value="ConjuctivalVessels"> Conjuctival-Veins<br/></div>
+		  <div><input type="radio" name="veins" value="nonmembranous"> Ciliary-Veins<br/></div>
+		  <div><input type="radio" name="veins" value="EpiscleralVeins"> Episcleral-Veins<br/></div>
        </ul>
 
 <div><input type="checkbox" value="follicles" name="follicles" onclick="changeClass4()"> Follicles</div>
         <ul class="nested" id="main4">
-		  <div><input type="checkbox" name="mature" value="Mature"> Mature<br/></div>
-		  <div><input type="checkbox" name="immature" value="Immature"> Immature<br/></div>
+		  <div><input type="radio" name="follicleState" value="Mature"> Mature<br/></div>
+		  <div><input type="radio" name="follicleState" value="Immature"> Immature<br/></div>
 		   </ul>
-		   <div><input type="checkbox" name="altline" value="altline"> Alt's Line<br/></div>
+	  <div><input type="checkbox" name="altline" value="arltsline"> Arlt's Line<br/></div>
 
-		<div><input type="checkbox" value="Position" name="Position" onclick="changeClass5()"> Position</div>
+		<div><input type="checkbox" value="Position" name="conjunctivaPos" onclick="changeClass5()"> Position</div>
         <ul class="nested" id="main5">
-			<div><input type="checkbox" name="upperbulbar1" value="UB"> Upper Bulbar<br/></div>
-		  <div><input type="checkbox" name="lowerbulbar1" value="LB"> Lower Bulbar<br/></div>
-		  <div><input type="checkbox" name="limbal1" value="Limbal"> Limbal<br/></div>
-		  <div><input type="checkbox" name="upperfornix1" value="UF"> Upper Fornix<br/></div>
-		  <div><input type="checkbox" name="lowerfornix1" value="LF"> Lower Fornix<br/></div>
-		<div><input type="checkbox" name="uppertarsel1" value="UT"> Upper Tarsel<br/></div>
-		 <div><input type="checkbox" name="lowertarsel1" value="LT"> Lower Tarsel<br/></div>
+			<div><input type="radio" name="cpos" value="UB"> Upper Bulbar<br/></div>
+		  <div><input type="radio" name="cpos" value="LB"> Lower Bulbar<br/></div>
+		  <div><input type="radio" name="cpos" value="Limbal"> Limbal<br/></div>
+		  <div><input type="radio" name="cpos" value="UF"> Upper Fornix<br/></div>
+		  <div><input type="radio" name="cpos" value="LF"> Lower Fornix<br/></div>
+		  <div><input type="radio" name="cpos" value="UT"> Upper Tarsel<br/></div>
+		  <div><input type="radio" name="cpos" value="LT"> Lower Tarsel<br/></div>
 	   </ul>
 
-	     <div><input type="checkbox" value="Concretion" name="concretion" onclick="changeClass6()">Concretion</div>
+	     <div><input type="checkbox" value="Concretion" name="concretion" onclick="changeClass6()"> Concretion</div>
         <ul class="nested" id="main6">
-			<div><input type="checkbox" name="upperbulbar2" value="ub"> Upper Bulbar<br/></div>
-		  <div><input type="checkbox" name="lowerbulbar2" value="lb"> Lower Bulbar<br/></div>
-		  <div><input type="checkbox" name="limbal2" value="Limbal"> Limbal<br/></div>
-		  <div><input type="checkbox" name="upperfornix2" value="uf"> Upper Fornix<br/></div>
-		  <div><input type="checkbox" name="lowerfornix2" value="lf"> Lower Fornix<br/></div>
-		<div><input type="checkbox" name="uppertarsel2" value="ut"> Upper Tarsel<br/></div>
-		 <div><input type="checkbox" name="lowertarsel2" value="lt"> Lower Tarsel<br/></div>
+          <div><input type="radio" name="conc" value="UB"> Upper Bulbar<br/></div>
+    		  <div><input type="radio" name="conc" value="LB"> Lower Bulbar<br/></div>
+    		  <div><input type="radio" name="conc" value="Limbal"> Limbal<br/></div>
+    		  <div><input type="radio" name="conc" value="UF"> Upper Fornix<br/></div>
+    		  <div><input type="radio" name="conc" value="LF"> Lower Fornix<br/></div>
+    		  <div><input type="radio" name="conc" value="UT"> Upper Tarsel<br/></div>
+    		  <div><input type="radio" name="conc" value="LT"> Lower Tarsel<br/></div>
 	   </ul>
 
-		<div><input type="checkbox" value="Papillaryhypertrophy" name="papillaryhypertrophy" onclick="changeClass7()">Papillary Hypertrophy</div>
+		<div><input type="checkbox" value="Papillaryhypertrophy" name="papillaryhypertrophy" onclick="changeClass7()"> Papillary Hypertrophy</div>
         <ul class="nested" id="main7">
-			<div><input type="checkbox" name="upperbulbar3" value="ub"> Upper Bulbar<br/></div>
-		  <div><input type="checkbox" name="lowerbulbar3" value="lb"> Lower Bulbar<br/></div>
-		  <div><input type="checkbox" name="limbal3" value="Limbal"> Limbal<br/></div>
-		  <div><input type="checkbox" name="upperfornix3" value="uf"> Upper Fornix<br/></div>
-		  <div><input type="checkbox" name="lowerfornix3" value="lf"> Lower Fornix<br/></div>
-		<div><input type="checkbox" name="uppertarsel3" value="ut"> Upper Tarsel<br/></div>
-		 <div><input type="checkbox" name="lowertarsel3" value="lt"> Lower Tarsel<br/></div>
+          <div><input type="radio" name="ph" value="UB"> Upper Bulbar<br/></div>
+    		  <div><input type="radio" name="ph" value="LB"> Lower Bulbar<br/></div>
+    		  <div><input type="radio" name="ph" value="Limbal"> Limbal<br/></div>
+    		  <div><input type="radio" name="ph" value="UF"> Upper Fornix<br/></div>
+    		  <div><input type="radio" name="ph" value="LF"> Lower Fornix<br/></div>
+    		  <div><input type="radio" name="ph" value="UT"> Upper Tarsel<br/></div>
+    		  <div><input type="radio" name="ph" value="LT"> Lower Tarsel<br/></div>
 	   </ul>
 
-	   <div><input type="checkbox" value="Pseudocyst" name="pseudocyst" onclick="changeClass8()">Pseudocyst</div>
+	   <div><input type="checkbox" value="Pseudocyst" name="pseudocyst" onclick="changeClass8()"> Pseudocyst</div>
         <ul class="nested" id="main8">
-			<div><input type="checkbox" name="upperbulbar4" value="ub"> Upper Bulbar<br/></div>
-		  <div><input type="checkbox" name="lowerbulbar4" value="lb"> Lower Bulbar<br/></div>
-		  <div><input type="checkbox" name="limbal4" value="Limbal"> Limbal<br/></div>
-		  <div><input type="checkbox" name="upperfornix4" value="uf"> Upper Fornix<br/></div>
-		  <div><input type="checkbox" name="lowerfornix4" value="lf"> Lower Fornix<br/></div>
-		<div><input type="checkbox" name="uppertarsel4" value="ut"> Upper Tarsel<br/></div>
-		 <div><input type="checkbox" name="lowertarsel4" value="lt"> Lower Tarsel<br/></div>
+          <div><input type="radio" name="pc" value="UB"> Upper Bulbar<br/></div>
+    		  <div><input type="radio" name="pc" value="LB"> Lower Bulbar<br/></div>
+    		  <div><input type="radio" name="pc" value="Limbal"> Limbal<br/></div>
+    		  <div><input type="radio" name="pc" value="UF"> Upper Fornix<br/></div>
+    		  <div><input type="radio" name="pc" value="LF"> Lower Fornix<br/></div>
+    		  <div><input type="radio" name="pc" value="UT"> Upper Tarsel<br/></div>
+    		  <div><input type="radio" name="pc" value="LT"> Lower Tarsel<br/></div>
 	   </ul>
 	   <div><input type="checkbox" name="xerosis" value="Xerosis"> Xerosis<br/></div>
 	   <div><input type="checkbox" name="symblepharon" value="symblepharon"> Symblepharon<br/></div>
 		<div><input type="checkbox" name="petechialhemorrhage" value="PetechialHemorrhage"> Petechial Hemorrhage<br/></div>
 		<div><input type="checkbox" value="Phlycten" name="phlycten" onclick="changeClass9()"> Phlycten</div>
         <ul class="nested" id="main9">
-			<div><input type="checkbox" name="upperbulbar5" value="ub"> Upper Bulbar<br/></div>
-		  <div><input type="checkbox" name="lowerbulbar5" value="lb"> Lower Bulbar<br/></div>
-		  <div><input type="checkbox" name="limbal5" value="Limbal"> Limbal<br/></div>
-		  <div><input type="checkbox" name="upperfornix5" value="uf"> Upper Fornix<br/></div>
-		  <div><input type="checkbox" name="lowerfornix5" value="lf"> Lower Fornix<br/></div>
-		<div><input type="checkbox" name="uppertarsel5" value="ut"> Upper Tarsel<br/></div>
-		 <div><input type="checkbox" name="lowertarsel5" value="lt"> Lower Tarsel<br/></div>
+          <div><input type="radio" name="p" value="UB"> Upper Bulbar<br/></div>
+          <div><input type="radio" name="p" value="LB"> Lower Bulbar<br/></div>
+          <div><input type="radio" name="p" value="Limbal"> Limbal<br/></div>
+          <div><input type="radio" name="p" value="UF"> Upper Fornix<br/></div>
+          <div><input type="radio" name="p" value="LF"> Lower Fornix<br/></div>
+          <div><input type="radio" name="p" value="UT"> Upper Tarsel<br/></div>
+          <div><input type="radio" name="p" value="LT"> Lower Tarsel<br/></div>
 	   </ul>
-	   <div><input type="checkbox" name="trantaspot" value="trantaspot"> Trantaspot<br/></div>
+	   <div><input type="checkbox" name="trantaspot" value="trantaspot"> Tranta spot<br/></div>
 		<div><input type="checkbox" name="pinguecula" value="pinguecula"> Pinguecula<br/></div>
 		<div><input type="checkbox" value="pterygium" name="pterygium" onclick="changeClass10()"> Pterygium</div>
         <ul class="nested" id="main10">
-			<div><input type="checkbox" name="attackingcornea" value="attackingcornea"> Attacking Cornea<br/></div>
-		  <div><input type="checkbox" name="neovascularization" value="neovascularization"> Neovascularization<br/></div>
+			<div><input type="checkbox" name="pg0" value="attackingcornea"> Attacking Cornea<br/></div>
+		  <div><input type="checkbox" name="pg1" value="neovascularization"> Neovascularization<br/></div>
 	   </ul>
 
-	   <div><input type="checkbox" value="tumor" name="tumor" onclick="changeClass11()"> Tumor</div>
-        <ul class="nested" id="main11">
-			<div><input type="checkbox" name="desmoid" value="desmoid"> Desmoid<br/></div>
-	   </ul>
+	   <div><input type="checkbox" value="tumor" name="tumor"> Tumor</div>
 	</ul>
     <br/>
     <br/>	<hr>
