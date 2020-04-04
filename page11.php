@@ -31,7 +31,7 @@ require 'connect.php';
 </head>
   <body>
     <div class="container">
-         <form action = "page12.php" method = "post">
+         <form action = "irisCheck.php" method = "post">
          <table width=100%>
       <tr><td width = 40%><h2>Iris</h2></td>
           <td width="35%"></td>
@@ -56,83 +56,95 @@ require 'connect.php';
       <hr>
       <ul>
 
-		<div><input type="checkbox" name="similarappearances" value="similarappearances"> Similar Appearances<br/></div>
-		<div><input type="checkbox" name="betweeneyes" value="betweeneyes"> Between Eyes<br/></div>
-		<div><input type="checkbox" name="lesious" value="lesious"> Lesious<br/></div>
-		<div><input type="checkbox" name="tears" value="tears"> Tears<br/></div>
-		<div><input type="checkbox" name="laceration" value="laceration"> Laceration<br/></div>
-		<div><input type="checkbox" name="prolapse" value="prolapse"> Prolapse<br/></div>
+
+    <h4>Iris</h4>
+	  	<div><input type="checkbox" name="ip0" value="similarappearances"> Similar Appearances<br/></div>
+	  	<div><input type="checkbox" name="ip1" value="betweeneyes"> Between Eyes<br/></div>
+	  	<div><input type="checkbox" name="ip2" value="lesious"> Lesious<br/></div>
+	  	<div><input type="checkbox" name="ip3" value="tears"> Tears<br/></div>
+		  <div><input type="checkbox" name="ip4" value="laceration"> Laceration<br/></div>
+		  <div><input type="checkbox" name="ip5" value="prolapse"> Prolapse<br/></div>
 		<br/><hr>
 
       <h4>Pupils</h4>
-      <div><input type="checkbox" name="variablesizes" value="variablesizes" > Variable Sizes<br/></div>
-      <div><input type="checkbox" name="reacttolight" value="reacttolight"> React To Light<br/></div>
-	  <div><input type="checkbox" name="positionshift" value="shift"> Position Shift<br/></div>
-	  <div><input type="checkbox" name="othershape" value="othershape"> Other Shape<br/></div>
-	  <div><input type="checkbox" name="dilated" value="dilated and constricted"> Dilated and Constricted<br/></div>
-	  <div><input type="checkbox" name="pulpillaryreflex" value="abnormal"> Pulpillary Reflex<br/></div>
-      <br/><hr>
+      <div><input type="checkbox" name="pp0" value="variablesizes" > Variable Sizes<br/></div>
+      <div><input type="checkbox" name="pp1" value="reacttolight"> React To Light<br/></div>
+	    <div><input type="checkbox" name="pp2" value="shift"> Position Shift<br/></div>
+	    <div><input type="checkbox" name="pp3" value="othershape"> Other Shape<br/></div>
+	    <div><input type="checkbox" name="pp4" value="dilated and constricted"> Dilated and Constricted<br/></div>
+	    <div><input type="checkbox" name="pp5" value="abnormal"> Pulpillary Reflex<br/></div>
+    <br/><hr>
 
-      <h4>Lens</h4>
-      <div><input type="checkbox" name="dull" value="Dull or absent red reflex"> Dull or Absent Red Reflex<br/></div>
-      <div><input type="checkbox" name="whitepupil" value="whitepupil"> White Pupil<br/></div>
-      <div><input type="checkbox" name="shadow" value="shadow in red reflex" > Shadow in Red Reflex<br/></div>
-      <div><input type="checkbox" name="position" value="position"> Position<br/></div>
-      <div><input type="checkbox" name="opacities" value="opacities"> Opacities<br/></div>
-     <br/><hr>
+    <h4>Lens</h4>
+      <div><input type="checkbox" name="lp0" value="DullOrAbsentRedReflex"> Dull or Absent Red Reflex<br/></div>
+      <div><input type="checkbox" name="lp1" value="WhitePupil"> White Pupil<br/></div>
+      <div><input type="checkbox" name="lp2" value="shadow in red reflex" > Shadow in Red Reflex<br/></div>
+      <div><input type="checkbox" name="lp3" value="position"> Position<br/></div>
+      <div><input type="checkbox" name="lp4" value="opacities"> Opacities<br/></div>
+    <br/><hr>
       <h4>Anterior Chamber</h4>
-      <div><input type="checkbox" name="flat" value="shallow and deep"> Shallow and Deep<br/></div>
-      <div><input type="checkbox" name="hyphaema" value="hyphaema"> Hyphaema<br/></div>
-      <div><input type="checkbox" name="hypopyon" value="hypopyon"> Hypopyon<br/></div>
-      <div><input type="checkbox" name="intraocularlens" value="intraocularlens"> Intraocularlens(IOL)<br/></div>
+      <div><input type="checkbox" name="ac0" value="shallow and deep"> Shallow and Deep<br/></div>
+      <div><input type="checkbox" name="ac1" value="hyphaema"> Hyphaema<br/></div>
+      <div><input type="checkbox" name="ac2" value="hypopyon"> Hypopyon<br/></div>
+      <div><input type="checkbox" name="ac3" value="intraocularlens"> Intraocularlens(IOL)<br/></div>
         <br/><hr>
 
       <h4>Cornea</h4>
-      <div><input type="checkbox" name="visualactivity" value="visualactivity"> Visual Activity<br/></div>
-      <div><input type="checkbox" value="shape" name="shape" onclick="changeClass1()"> Shape</div>
+       <div>Visual Acuity <input type="text" name="visualacuity" placeholder="-/-" pattern="[0-9]/[0-9]" required><br/></div>
+       <div><input type="checkbox" value="shape" name="corneaShape" onclick="changeClass1()"> Shape</div>
         <ul class="nested" id="main1">
-          <div><input type="checkbox" name="elliptcal" value="elliptical Hypotony"> Elliptical Hypotony<br/></div>
-          <div><input type="checkbox" name="conicalkeratoconous" value="Conicalkeratoconous"> Conical Keratoconous<br/></div>
-		  <div><input type="checkbox" name="quadilateral" value="quadilateral phthisis"> Quadilateral Phthisis<br/></div>
-       </ul>
+          <div><input type="radio" name="corS" value="ellipticalHypotony"> Elliptical Hypotony<br/></div>
+          <div><input type="radio" name="corS" value="conicalKeratoconous"> Conical Keratoconous<br/></div>
+		      <div><input type="radio" name="corS" value="quadilateralPhthisis"> Quadilateral Phthisis<br/></div>
+        </ul>
 
-       <div><input type="checkbox" value="curvature" name="curvature" onclick="changeClass3()"> Size</div>
+       <div><input type="checkbox" value="curvature" name="curvature" onclick="changeClass3()"> Curvature</div>
         <ul class="nested" id="main3">
-          <div><input type="checkbox" name="increase" value="increase"> Increase<br/></div>
-          <div><input type="checkbox" name="Decrease" value="Decrease"> Decrease<br/></div>
-       </ul>
+          <div><input type="radio" name="curve" value="increase"> Increase<br/></div>
+          <div><input type="radio" name="curve" value="Decrease"> Decrease<br/></div>
+        </ul>
 
 	   <div><input type="checkbox" value="thickness" name="thickness" onclick="changeClass4()"> Thickness</div>
         <ul class="nested" id="main4">
-          <div><input type="checkbox" name="corneaedema" value="cornea edema"> Cornea Edema<br/></div>
-          <div><input type="checkbox" name="filamentary" value="filamentarykeratopathy"> Filamentary Keratopathy<br/></div>
-		  <div><input type="checkbox" value="keratitits" name="keratitits" onclick="changeClass5()">Keratitits</div>
+          <div><input type="checkbox" name="tp0" value="corneaedema"> Cornea Edema<br/></div>
+          <div><input type="checkbox" name="tp1" value="filamentarykeratopathy"> Filamentary Keratopathy<br/></div>
+		      <div><input type="checkbox" name="tp2" value="keratitits"> Keratitits</div>
+        </ul>
+    <!-- REMOVED THE ONCLICK ON KERATITITS
+
+
         <ul class="nested" id="main5">
-				<div><input type="checkbox" name="endogenous" value="endogenousinflation"> Endogenous Inflation<br/></div>
+				  <div><input type="checkbox" name="endogenous" value="endogenousinflation"> Endogenous Inflation<br/></div>
           <div><input type="checkbox" name="filamentary" value="exogenousinflation"> Exogenous Inflation<br/></div>
-		  <div><input type="checkbox" name="contiguous" value="Contiguous Spread from Ocular Tissue"> Contiguous Spread from Ocular Tissue<br/></div>
-		</ul>
+		      <div><input type="checkbox" name="contiguous" value="Contiguous Spread from Ocular Tissue"> Contiguous Spread from Ocular Tissue<br/></div>
+		   </ul>
+
+
+     REMOVED Transperacy PROPERTY ALL TOGETHER.. WASN'T MAKING ANY SENSE... TO ME ATLEAST
        </ul>
 
 	   <div><input type="checkbox" value="Transperacy" name="transperacy" onclick="changeClass6()"> Transperacy</div>
-		<ul class="nested" id="main6">
-				<div><input type="checkbox" name="nebula" value="endogenousinflation"> Endogenous Inflation<br/></div>
-          <div><input type="checkbox" name="macula" value="exogenousinflation"> Exogenous Inflation<br/></div>
-		  <div><input type="checkbox" name="leucoma" value="leucoma"> Leucoma<br/></div>
-		</ul>
+		  <ul class="nested" id="main6">
+				 <div><input type="checkbox" name="nebula" value="endogenousinflation"> Endogenous Inflation<br/></div>
+         <div><input type="checkbox" name="macula" value="exogenousinflation"> Exogenous Inflation<br/></div>
+		     <div><input type="checkbox" name="leucoma" value="leucoma"> Leucoma<br/></div>
+		 </ul>
+	   <div><input type="checkbox" value="sensation" name="sensation"> Sensation</div>
 
-	   <div><input type="checkbox" value="sensation" name="sensation" onclick="changeClass7()"> sensation</div>
-		<ul class="nested" id="main7">
+ REMOVED SENSATION BEING POSITIVE NEGATIVE
+		  <ul class="nested" id="main7">
 				<div><input type="checkbox" name="positive" value="positive" > Positive<br/></div>
-          <div><input type="checkbox" name="negative" value="negative"> Negative<br/></div>
-		</ul>
+        <div><input type="checkbox" name="negative" value="negative"> Negative<br/></div>
+		  </ul>
+-->
+
 		<div><input type="checkbox" name="vascularization" value="vascularization"> Vascularization<br/></div>
-	  <div><input type="checkbox" value="diposits" name="diposits" onclick="changeClass8()"> Deposits</div>
+	  <div><input type="checkbox" name="deposits" onclick="changeClass8()"> Deposits</div>
         <ul class="nested" id="main8">
-          <div><input type="checkbox" name="membranous" value="Membranous"> Membranous<br/></div>
-          <div><input type="checkbox" name="pseudomembranous" value="Pseudomembranous"> Pseudomembranous<br/></div>
-		  <div><input type="checkbox" name="" value="nonmembranous"> Non Membranous<br/></div>
-       </ul>
+          <div><input type="radio" name="dt" value="Membranous"> Membranous<br/></div>
+          <div><input type="radio" name="dt" value="Pseudomembranous"> Pseudomembranous<br/></div>
+		      <div><input type="radio" name="dt" value="nonmembranous"> Non Membranous<br/></div>
+        </ul>
 	</ul>
     <br/>
     <br/>	<hr>
