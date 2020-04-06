@@ -99,7 +99,7 @@ require 'connect.php';
             <ul class="list-unstyled mt-3 mb-4">
               <li>Prepare the chartsheet for the patient by selcting the required symptoms.</li>
             </ul>
-            <a style="text-decoration:none" href = "verify.php"><button type="button" class="btn btn-lg btn-block btn-primary">Casesheet</button></a>
+            <a style="text-decoration:none" href = "verify.php?id=0"><button type="button" class="btn btn-lg btn-block btn-primary">Casesheet</button></a>
           </div>
         </div>
 			<div class="card mb-4 box-shadow">
@@ -111,7 +111,7 @@ require 'connect.php';
             <ul class="list-unstyled mt-3 mb-4">
               <li>This option is under construction.Please try again after some time.</li>
             </ul>
-            <a style="text-decoration:none" href = "#"><button type="button" class="btn btn-lg btn-block btn-primary">View</button></a>
+            <a style="text-decoration:none" href = "verify.php?id=1"><button type="button" class="btn btn-lg btn-block btn-primary">View</button></a>
           </div>
         </div>
 

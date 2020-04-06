@@ -90,7 +90,7 @@ require 'connect.php';
         <br/><hr>
 
       <h4>Cornea</h4>
-       <div>Visual Acuity <input type="text" name="visualacuity" placeholder="-/-" pattern="[0-9]/[0-9]" required><br/></div>
+       <div>Visual Acuity <input type="text" name="visualacuity" placeholder="-/-" pattern="[0-9]/[0-9]" ><br/></div>
        <div><input type="checkbox" value="shape" name="corneaShape" onclick="changeClass1()"> Shape</div>
         <ul class="nested" id="main1">
           <div><input type="radio" name="corS" value="ellipticalHypotony"> Elliptical Hypotony<br/></div>
