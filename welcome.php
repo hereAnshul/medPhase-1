@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['id']==""){
+if(!isset($_SESSION['patient_login'])){
   echo "<script> alert('Bad Bad Boy');
       location = '404.php';
           </script>";
@@ -63,7 +63,7 @@ require 'connect.php';
       <h5 class="my-0 mr-md-auto font-weight-normal">MedArch</h5>
       <a class="p-2 text-dark" href="#">Hello, <?php
             if($_SESSION['gender']=='MALE')
-              echo 'Mr. '.$_SESSION['name'];
+            echo "Mr. ".$_SESSION['name'];
             elseif ($_SESSION['gender']=='FEMALE') {
               echo "Mrs. ".$_SESSION['name'];
             }
@@ -91,9 +91,9 @@ require 'connect.php';
           <div class="card-body">
 
             <ul class="list-unstyled mt-3 mb-4">
-              <li>This option is under construction.Please try again after some time.</li>
+              <li>View your past casesheets here.</li>
             </ul>
-            <a style="text-decoration:none" href = "#"><button type="button" class="btn btn-lg btn-block btn-primary">View</button></a>
+            <a style="text-decoration:none" href = "ViewCasesheets-home.php"><button type="button" class="btn btn-lg btn-block btn-primary">View</button></a>
           </div>
         </div>
 

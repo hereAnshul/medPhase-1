@@ -109,7 +109,7 @@ require 'connect.php';
           <div class="card-body">
 
             <ul class="list-unstyled mt-3 mb-4">
-              <li>This option is under construction.Please try again after some time.</li>
+              <li>You can view the past records from here.</li>
             </ul>
             <a style="text-decoration:none" href = "verify.php?id=1"><button type="button" class="btn btn-lg btn-block btn-primary">View</button></a>
           </div>

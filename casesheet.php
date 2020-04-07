@@ -1,15 +1,17 @@
 <?php
 session_start();
-if($_SESSION["docid"]==""){
+error_reporting(0);
+if($_SESSION["doctor_login"] == 2 && $_SESSION["patient_login"] == 1)
+{
   echo "<script> alert('Bad Bad Boy');
       location = '404.php';
           </script>";
 }
-//error_reporting(0);
 require 'connect.php';
 $caseid = $_GET["caseid"];
+$hid = $_GET["hid"];
+$_SESSION['temp'] = $hid;
 $_SESSION['temp3'] = $caseid;
-$hid = $_SESSION["hospital_id"];
 $prefix = "eye_";
 $final_str = $prefix.$hid;
 $database_casesheet = $client->$final_str;
@@ -17,19 +19,6 @@ $collection = $database_casesheet->$caseid;
 $cursor = $collection->find();
 $doc_count = $collection->count();
 $array = iterator_to_array($cursor);
-/*
-$importants = $collection->find(['_id' =>'IMPORTANTS']);
-$gen_info = $collection->find(['_id' =>'GENERAL INFORMATION']);
-$complaints = $collection->find(['_id' =>'COMPLAINTS']);
-$vitals = $collection->find(['_id' =>'VITALS']);
-$past_history = $collection->find(['_id' =>'PAST HISTORY']);
-$past_history_eye = $collection->find(['_id' =>'PAST HISTORY OF EYE']);
-$family_history = $collection->find(['_id' =>'FAMILY HISTORY']);
-$disease = $collection->find(['_id' =>'DISEASE']);
-$comments = $collection->find(['_id' =>'COMMENTS']);
-$medicines = $collection->find(['_id' =>'MEDICINES']);
-
-*/
 $m_temp = 0;
 
 ?>
@@ -82,32 +71,56 @@ $m_temp = 0;
 
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <h5 class="my-0 mr-md-auto font-weight-normal">MedArch</h5>
-     <a class="p-2 text-dark" href="#"><?php echo 'Dr. '.$_SESSION['docname'];?></a>
+     <a class="p-2 text-dark" href="#">Hello,
+       <?php
+       if($_SESSION['patient_login']==1)
+       {
+         if($_SESSION['gender']=='MALE')
+         echo "Mr. ".$_SESSION['name'];
+         elseif ($_SESSION['gender']=='FEMALE') {
+           echo "Mrs. ".$_SESSION['name'];
+         }
+         else {
+           echo $_SESSION['name'];
+         }
+       }
+       elseif($_SESSION['doctor_login']==2)
+       {
+            echo 'Dr. '.$_SESSION['docname'];
+       }
+       ?></a>
 	 <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="mailto:teamcreators7@gmail.com">Contact Support</a>
-		<a class="btn btn-outline-primary" href="home.php">Home</a>
+		<a class="btn btn-outline-primary" href=<?php
+
+    if($_SESSION['patient_login']==1)
+      echo "welcome.php";
+
+    elseif($_SESSION['doctor_login']==2)
+      echo "home.php";
+    ?>>Home</a>
 	</nav>
     </div>
 
-<script>
-$(document).ready(function(){
+    <script>
+    $(document).ready(function(){
 
-	$('#select').change(function(){
-		$.post("submit.php",
-			{id: $('#select').val()}
+    	$('#select').change(function(){
+    		$.post("submit.php",
+    			{id: $('#select').val()}
 
-		);
-	});
-});
+    		);
+    	});
+    });
 
-$(document).ready(function()
-	{
-    $('#select').change(function(){
-		$('#case').load('load.php');
-	});
-});
+    $(document).ready(function()
+    	{
+        $('#select').change(function(){
+    		$('#case').load('load.php');
+    	});
+    });
 
-</script>
+    </script>
 
     <select id="select" class="form-control">
       <option value ="100">Choose</option>

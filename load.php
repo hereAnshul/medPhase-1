@@ -1,14 +1,16 @@
 <?php
 session_start();
-if($_SESSION["docid"]==""){
+error_reporting(0);
+if($_SESSION["doctor_login"] == 2 && $_SESSION["patient_login"] == 1)
+{
   echo "<script> alert('Bad Bad Boy');
       location = '404.php';
           </script>";
 }
-error_reporting(0);
+
 require 'connect.php';
 $caseid = $_SESSION["temp3"];
-$hid = $_SESSION["hospital_id"];
+$hid = $_SESSION["temp"];
 $prefix = "eye_";
 $final_str = $prefix.$hid;
 $database_casesheet = $client->$final_str;

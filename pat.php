@@ -21,7 +21,7 @@ if(isset($_POST['login']))
               </script>";
     }
     $_SESSION['phone'] = $phone;
-    $_SESSION['id'] = $id;
+    $_SESSION['p_id'] = $id;
     $_SESSION['name'] = $name;
     $_SESSION['gender'] = $gender;
   if($_POST['ppass']=="" && $password==""){
@@ -38,6 +38,8 @@ if(isset($_POST['login']))
                 $id, $options, $decryption_iv);
   }
   if(strcmp($decrypt, $pass)==0){
+
+      $_SESSION['patient_login'] = 1;
   	  echo '<script>location="welcome.php"</script>';
   }else
   {

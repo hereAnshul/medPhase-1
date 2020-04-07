@@ -24,6 +24,7 @@ if(isset($_POST['login']))
       $_SESSION['docid'] = $id;
       $_SESSION['docname'] = $name;
       $_SESSION['hospital_id'] = $hospital_id;
+      $_SESSION['doctor_login'] = 2;
       echo "<script>
         alert('Welcome Doctor');
         location = 'home.php';

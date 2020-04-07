@@ -1,11 +1,11 @@
 <?php
 session_start();
-		if(isset($_SESSION['docid']))
+		if(isset($_SESSION['doctor_login']))
 		{
 			session_destroy();
 			header('Location:index.php');
 		}
-		elseif(isset($_SESSION['id']))
+		elseif(isset($_SESSION['patient_login']))
 		{
 			session_destroy();
 			header('Location:index.php');

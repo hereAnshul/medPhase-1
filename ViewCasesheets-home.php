@@ -1,13 +1,18 @@
 <?php
 session_start();
-if($_SESSION["docid"]==""){
+
+error_reporting(0);
+if($_SESSION["doctor_login"] == 2 && $_SESSION["patient_login"] == 1)
+{
   echo "<script> alert('Bad Bad Boy');
       location = '404.php';
           </script>";
 }
-error_reporting(0);
+
+
 require 'connect.php';
 $collection = $db->patient_casesheets;
+
 $res = $collection->find(['p_id' =>$_SESSION['p_id']]);
 ?>
 <!doctype html>
@@ -59,10 +64,33 @@ $res = $collection->find(['p_id' =>$_SESSION['p_id']]);
 
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <h5 class="my-0 mr-md-auto font-weight-normal">MedArch</h5>
-     <a class="p-2 text-dark" href="#"><?php echo 'Dr. '.$_SESSION['docname'];?></a>
+     <a class="p-2 text-dark" href="#">Hello,<?php
+     if($_SESSION['patient_login']==1)
+     {
+       if($_SESSION['gender']=='MALE')
+       echo "Mr. ".$_SESSION['name'];
+       elseif ($_SESSION['gender']=='FEMALE') {
+         echo "Mrs. ".$_SESSION['name'];
+       }
+       else {
+         echo $_SESSION['name'];
+       }
+     }
+     elseif($_SESSION['doctor_login']==2)
+     {
+          echo 'Dr. '.$_SESSION['docname'];
+     }
+     ?></a>
 	 <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="mailto:teamcreators7@gmail.com">Contact Support</a>
-		<a class="btn btn-outline-primary" href="home.php">Home</a>
+		<a class="btn btn-outline-primary" href=<?php
+
+    if($_SESSION['patient_login']==1)
+      echo "welcome.php";
+
+    elseif($_SESSION['doctor_login']==2)
+      echo "home.php";
+    ?>>Home</a>
 	</nav>
     </div>
 
@@ -81,10 +109,10 @@ $res = $collection->find(['p_id' =>$_SESSION['p_id']]);
         <tr>
 
           <td><?php echo $details['doc_id'] ?></td>
-          <td><?php echo $details['hospital_id'] ?></td>
+          <td><?php echo $details['hospital_id'] ?>  </td>
           <td><?php echo $details['date'] ?></td>
           <td><?php echo $details['time'] ?></td>
-          <td><a href="casesheet.php?caseid=<?php echo $details['casesheet']?>"><?php echo $details['casesheet'] ?></a></td>
+          <td><a href="casesheet.php?caseid=<?php echo $details['casesheet']?>&hid=<?php echo $details['hospital_id']?>"><?php echo $details['casesheet'] ?></a></td>
 
         </tr>
       <?php }  ?>
