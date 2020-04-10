@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if($_SESSION["docid"]==""){
   echo "<script> alert('Bad Bad Boy');
       location = '404.php';

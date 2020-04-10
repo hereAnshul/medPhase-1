@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 require 'connect.php';
-
+include 'security.php';
 if(isset($_POST['login']))
 {
   $id = $_POST['pid'];
@@ -11,9 +11,9 @@ if(isset($_POST['login']))
     foreach($res as $details)
     {
       $password = $details['password'];
-      $name =  $details['name'];
-      $phone = $details['phone'];
-      $gender = $details['sex'];
+      $name =  decrypt($details['name']);
+      $phone = decrypt($details['phone']);
+      $gender = decrypt($details['sex']);
     }
     if($name=="" && $phone==""){
       echo "<script> alert('Invalid Users');
@@ -21,7 +21,7 @@ if(isset($_POST['login']))
               </script>";
     }
     $_SESSION['phone'] = $phone;
-    $_SESSION['p_id'] = $id;
+    $_SESSION['id'] = $id;                         //remeber changing any [' text '] will snowball the whole code.
     $_SESSION['name'] = $name;
     $_SESSION['gender'] = $gender;
   if($_POST['ppass']=="" && $password==""){
@@ -38,7 +38,7 @@ if(isset($_POST['login']))
                 $id, $options, $decryption_iv);
   }
   if(strcmp($decrypt, $pass)==0){
-
+      $_SESSION['p_id'] = $id;
       $_SESSION['patient_login'] = 1;
   	  echo '<script>location="welcome.php"</script>';
   }else

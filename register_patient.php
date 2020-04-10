@@ -1,15 +1,15 @@
 <?php
 session_start();
 require 'connect.php';
-
+include 'security.php';
 if(isset($_POST['register']))
 {
   $collection = $db->patient_details;
-  $name = $_POST['name'];
-  $age = $_POST['age'];
-  $gender = $_POST['sex'];
-  $phone = $_POST['phone'];
-  $mail = $_POST['mail'];
+  $name = encrypt($_POST['name']);
+  $age = encrypt($_POST['age']);
+  $gender = encrypt($_POST['sex']);
+  $phone = encrypt($_POST['phone']);
+  $mail = encrypt($_POST['mail']);
   $cursor = $collection->find();
   $n =  count(iterator_to_array($cursor));
   $id = 1001001 + $n + 1;

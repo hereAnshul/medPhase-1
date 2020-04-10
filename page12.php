@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if($_SESSION["docid"]==""){
   echo "<script> alert('Bad Bad Boy');
       location = '404.php';
@@ -111,10 +112,10 @@ require 'connect.php';
       <br/><hr>
 
 	  <h4>Hemorrhage in Retina</h4>
-     <div><input type="checkbox" name="hemr0" value="Flame/Splinter shaped"> Flame/Splinter shaped<br/></div>
-	   <div><input type="checkbox" name="hemr1" value="Dot Blot"> Dot Blot<br/></div>
+     <div><input type="checkbox" name="hemr0" value="Flame/SplinterShaped"> Flame/Splinter shaped<br/></div>
+	   <div><input type="checkbox" name="hemr1" value="DotBlot"> Dot Blot<br/></div>
 	   <div><input type="checkbox" name="hemr2" value="Retrohyaloid"> Retrohyaloid<br/></div>
-	   <div><input type="checkbox" name="hemr3" value="Sub Retinal"> Sub Retinal<br/></div>
+	   <div><input type="checkbox" name="hemr3" value="SubRetinal"> Sub Retinal<br/></div>
 	   <div><input type="checkbox" name="hemr4" value="Viterous"> Viterous<br/></div>
     <br/><hr>
 

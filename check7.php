@@ -4,6 +4,7 @@
 session_start();
 error_reporting(0);
 include 'connect.php';
+include 'security.php';
 $casesheet = $_SESSION['caseid'];
 $var = "eye_".$_SESSION['hospital_id'];
 $eye = $client->$var;
@@ -27,14 +28,14 @@ for($i=0;$i<=10;$i++)
 			$k = 1;
 		}
 		$str1 = "opd".$m;
-		$collection->updateOne(['_id'=>'OPTICDISC'], ['$set' => [$str1 => ($_POST[$str])]]);
+		$collection->updateOne(['_id'=> 'OPTICDISC'], ['$set' => [$str1 => encrypt($_POST[$str])]]);
 	$m+=1;
 	}
 }
 
 //Physiological cup
 if(isset($_POST['CupDiscRatio'])){
-	$collection->insertOne(['_id' => 'CDRATIO', 'ratio' => $_POST['CupDiscRatio']]);
+	$collection->insertOne(['_id' => 'CDRATIO', 'ratio' => encrypt($_POST['CupDiscRatio'])]);
 }
 
 //retinal vessel
@@ -52,7 +53,7 @@ for($i=0;$i<8;$i++)
 			$k = 1;
 		}
 		$str1 = "retv".$m;
-		$collection->updateOne(['_id'=>'RETINALVESSEL'], ['$set' => [$str1 => ($_POST[$str])]]);
+		$collection->updateOne(['_id'=> 'RETINALVESSEL'], ['$set' => [$str1 => encrypt($_POST[$str])]]);
 	$m+=1;
 	}
 }
@@ -68,11 +69,11 @@ for($i=0;$i<6;$i++)
 	{
 		if($k==0)
 		{
-			$collection->insertOne(['_id' => 'MACULAR']);
+			$collection->insertOne(['_id' =>'MACULAR']);
 			$k = 1;
 		}
 		$str1 = "mcr".$m;
-		$collection->updateOne(['_id' => 'MACULAR'], ['$set' => [$str1 => ($_POST[$str])]]);
+		$collection->updateOne(['_id' => 'MACULAR'], ['$set' => [$str1 => encrypt($_POST[$str])]]);
 	$m+=1;
 	}
 }
@@ -92,7 +93,7 @@ for($i=0;$i<5;$i++)
 			$k = 1;
 		}
 		$str1 = "hemr".$m;
-		$collection->updateOne(['_id'=>'RETINALHEMORRHAGE'], ['$set' => [$str1 => ($_POST[$str])]]);
+		$collection->updateOne(['_id'=> 'RETINALHEMORRHAGE'], ['$set' => [$str1 => encrypt($_POST[$str])]]);
 		$m+=1;
 	}
 }
@@ -102,11 +103,11 @@ for($i=0;$i<5;$i++)
 
 if(isset($_POST['t0']))
 {
-	$collection->insertOne(['_id'=>'DISEASE','a0'=>strtoupper($_POST['t0'])]);
+	$collection->insertOne(['_id'=> 'DISEASE','a0'=> encrypt($_POST['t0'])]);
 }
 if(isset($_POST['t1']))
 {
-	$collection->insertOne(['_id'=>'COMMENTS','message'=> $_POST['t1']]);
+	$collection->insertOne(['_id'=> 'COMMENTS', 'message'=> encrypt($_POST['t1'])]);
 }
 
 
@@ -124,7 +125,7 @@ for($i=0;$i<8;$i++)
 			$k = 1;
 		}
 	$str1 = "a".$m;
-		$collection->updateOne(['_id'=>'MEDICINES'],['$set' => [$str1 => strtoupper($_POST[$str])]]);
+		$collection->updateOne(['_id'=> 'MEDICINES'],['$set' => [$str1 => encrypt($_POST[$str])]]);
 	$m+=1;
 	}
 }

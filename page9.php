@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if($_SESSION["docid"]==""){
   echo "<script> alert('Bad Bad Boy');
       location = '404.php';
@@ -51,8 +52,8 @@ require 'connect.php';
       <h3>Position of head</h3>
       <select name="HEADPOS" class="form-control">
         <option value="">--Select--</option>
-        <option value="turnedtoavoiddiplopia">Turned to avoid diplopia</option>
-        <option value="chinelevated">Chin elevated to uncover pupileary area</option>
+        <option value="TurnedToAvoidDiplopia">Turned to avoid diplopia</option>
+        <option value="ChinElevatedToUncoverPupilArea">Chin elevated to uncover pupileary area</option>
       </select>
 
       <br><hr>
@@ -85,47 +86,47 @@ require 'connect.php';
   <br><hr>
   <h3>Movements</h3>
     <ul>
-    <div><input type="checkbox" value="Medical Rectus" name="medicalrectus" onclick="changeClass1()"> Medical Rectus</div>
+    <div><input type="checkbox" value="MedicalRectus" name="mov0" onclick="changeClass1()"> Medical Rectus</div>
     <ul class="nested" id="main1">
-         <div><input type="radio" name="normal/abnormal" value="Normal"> Normal<br/></div>
+         <div><input type="radio" name="status0" value="Normal"> Normal<br/></div>
 
-        <div><input type="radio" name="normal/abnormal" value="Abnormal"> Abnormal<br/></div>
+        <div><input type="radio" name="status0" value="Abnormal"> Abnormal<br/></div>
     </ul>
 
-    <div><input type="checkbox" value="Lateral Rectus" name="lateralrectus" onclick="changeClass2()"> Lateral Rectus</div>
+    <div><input type="checkbox" value="LateralRectus" name="mov1" onclick="changeClass2()"> Lateral Rectus</div>
     <ul class="nested" id="main2">
-         <div><input type="radio" name="normal/abnormal" value="Normal"> Normal<br/></div>
+         <div><input type="radio" name="status1" value="Normal"> Normal<br/></div>
 
-        <div><input type="radio" name="normal/abnormal" value="Abnormal"> Abnormal<br/></div>
+        <div><input type="radio" name="status1" value="Abnormal"> Abnormal<br/></div>
     </ul>
 
-    <div><input type="checkbox" value="Superior Rectus" name="superiorrectus" onclick="changeClass9()"> Superior Rectus</div>
+    <div><input type="checkbox" value="SuperiorRectus" name="mov2" onclick="changeClass9()"> Superior Rectus</div>
     <ul class="nested" id="main9">
-         <div><input type="radio" name="normal/abnormal" value="Normal"> Normal<br/></div>
+         <div><input type="radio" name="status2" value="Normal"> Normal<br/></div>
 
-        <div><input type="radio" name="normal/abnormal" value="Abnormal"> Abnormal<br/></div>
+        <div><input type="radio" name="status2" value="Abnormal"> Abnormal<br/></div>
     </ul>
 
-    <div><input type="checkbox" value="Inferior Rectus" name="inferiorrectus" onclick="changeClass8()"> Inferior Rectus</div>
+    <div><input type="checkbox" value="InferiorRectus" name="mov3" onclick="changeClass8()"> Inferior Rectus</div>
     <ul class="nested" id="main8">
-         <div><input type="radio" name="normal/abnormal" value="Normal"> Normal<br/></div>
+         <div><input type="radio" name="status3" value="Normal"> Normal<br/></div>
 
-        <div><input type="radio" name="normal/abnormal" value="Abnormal"> Abnormal<br/></div>
+        <div><input type="radio" name="status3" value="Abnormal"> Abnormal<br/></div>
     </ul>
 
-    <div><input type="checkbox" value="Superior oblique" name="superioroblique" onclick="changeClass3()" > Superior oblique</div>
+    <div><input type="checkbox" value="SuperiorOblique" name="mov4" onclick="changeClass3()" > Superior oblique</div>
     <ul class="nested" id="main3">
-         <div><input type="radio" name="normal/abnormal" value="Normal"> Normal<br/></div>
+         <div><input type="radio" name="status4" value="Normal"> Normal<br/></div>
 
-        <div><input type="radio" name="normal/abnormal" value="Abnormal" > Abnormal<br/></div>
+        <div><input type="radio" name="status4" value="Abnormal" > Abnormal<br/></div>
     </ul>
 
 
-    <div><input type="checkbox" value="Inferior oblique" name="inferioroblique" onclick="changeClass4()"> Inferior oblique</div>
+    <div><input type="checkbox" value="InferiorOblique" name="mov5" onclick="changeClass4()"> Inferior oblique</div>
     <ul class="nested" id="main4">
-         <div><input type="radio" name="normal/abnormal" value="Normal"> Normal<br/></div>
+         <div><input type="radio" name="status5" value="Normal"> Normal<br/></div>
 
-        <div><input type="radio" name="normal/abnormal" value="Abnormal"> Abnormal<br/></div>
+        <div><input type="radio" name="status5" value="Abnormal"> Abnormal<br/></div>
     </ul>
   </ul>
 

@@ -9,6 +9,7 @@ if($_SESSION["doctor_login"] == 2 && $_SESSION["patient_login"] == 1)
 }
 
 require 'connect.php';
+include 'security.php';
 $caseid = $_SESSION["temp3"];
 $hid = $_SESSION["temp"];
 $prefix = "eye_";
@@ -38,7 +39,7 @@ $array = iterator_to_array($cursor);
     <tr>
       <?php
       foreach ($array[$a] as $key => $value) { ?>
-      <td><?php echo $value; ?></td>
+      <td><?php echo decrypt($value); ?></td>
       <?php } ?>
     </tr>
 

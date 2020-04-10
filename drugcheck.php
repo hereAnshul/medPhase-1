@@ -4,6 +4,7 @@
 session_start();
 error_reporting(0);
 include 'connect.php';
+include 'security.php';
 $casesheet = $_SESSION['caseid'];
 $var = "eye_".$_SESSION['hospital_id'];
 $eye = $client->$var;
@@ -23,7 +24,7 @@ for($i=0;$i<14;$i++)
 			$k = 1;
 		}
 		$str1 = "a".$m;
-		$collection->updateOne(['_id'=>'DRUGSUSED'], ['$set' => [$str1 => strtoupper($_POST[$str])]]);
+		$collection->updateOne(['_id'=>'DRUGSUSED'], ['$set' => [$str1 => encrypt($_POST[$str])]]);
 		$m +=1;
 	}
 }

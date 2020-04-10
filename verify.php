@@ -1,6 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
+include 'security.php';
 include 'connect.php';
 $temp = $_GET['id'];
 $_SESSION['temp'] = $temp;
@@ -14,13 +15,13 @@ if(isset($_POST['gotp']))
 	  $res = $collection->find(['_id' => $id]);
 	foreach($res as $details)
 	{
-		$name =  $details['name'];
-		$age = $details['age'];
-		$sex = $details['sex'];
-		$mob1	=  $details['phone'];
+		$name = decrypt($details['name']);
+		$age = decrypt($details['age']);
+		$sex = decrypt($details['sex']);
+		$mob1	= decrypt($details['phone']);
 	}
 
-	if(strcmp($mob1,$mob)==0)
+	if(strcmp($mob1, $mob)==0)
 	{								//to send otp to this number
 	  $_SESSION['p_id'] = $id;
 	  $_SESSION['p_name'] = $name;
@@ -88,7 +89,7 @@ if(isset($_POST['verify']))
 <div class="login-page">
   <div class="form">
     <form  method="post">
-      <input type="text" name="id" placeholder="Enter ID">
+      <input type="text" name="id" placeholder="Enter Patient's ID">
 	  <input type="text" name="mob" placeholder="Phone">
       <input type = "submit" name = "gotp" id = "got" value = "Get OTP"/>
 	  <input type="text" name="otp" placeholder="Enter OTP"/>

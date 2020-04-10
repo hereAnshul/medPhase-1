@@ -1,15 +1,20 @@
 <?php
+//session includes
 session_start();
 error_reporting(0);
 include 'connect.php';
-$age = $_POST['age'];
-$sex = $_POST['sex'];
-$religion = $_POST['religion'];
-$state = strtoupper($_POST['stt']);
-$marital = $_POST['marital'];
-$veg = $_POST['food'];
-$city = $_POST['city'];
-$occ = $_POST['occupation'];
+include 'security.php';
+//data fetch
+$age = encrypt($_POST['age']);
+$sex = encrypt($_POST['sex']);
+$religion = encrypt($_POST['religion']);
+$state = encrypt(strtoupper($_POST['stt']));
+$marital = encrypt($_POST['marital']);
+$veg = encrypt($_POST['food']);
+$city = encrypt($_POST['city']);
+$occ = encrypt($_POST['occupation']);
+
+//not needed
 $casesheet = $_SESSION['caseid'];
 $var = "eye_".$_SESSION['hospital_id'];
 $eye = $client->$var;
@@ -17,16 +22,18 @@ $collection = $eye->$casesheet;
 date_default_timezone_set('Asia/Kolkata');
 						$d = date("y-m-d");
 						$t = date("h:i:sa");
-$collection->insertOne(['_id'=>'IMPORTANTS','docname'=>$_POST['docname'],'docid'=>$_SESSION['docid'],'date'=>$d,'time'=>$t]);
-$collection->insertOne(['_id'=>'GENERAL INFORMATION','AGE'=>$age,'SEX'=>$sex,'RELIGION'=>$religion,'STATE'=>$state,'CITY'=>$city,'OCCUPATION'=>$occ,'MARITAL STATUS'=>$marital,'NON VEG'=>$veg]);  
+$collection->insertOne(['_id'=>'IMPORTANTS','docname'=>encrypt($_POST['docname']),'docid'=>encrypt($_SESSION['docid']),'date'=>encrypt($d),'time'=>encrypt($t)]);
+$collection->insertOne(['_id'=>'GENERAL INFORMATION','AGE'=>$age,'SEX'=>$sex,'RELIGION'=>$religion,'STATE'=>$state,'CITY'=>$city,'OCCUPATION'=>$occ,'MARITAL STATUS'=>$marital,'NON VEG'=>$veg]);
 
 $collection->insertOne(['_id'=>'COMPLAINTS']);
-$collection->insertOne(['_id'=>'VITALS']);	
-	
+
+
+$collection->insertOne(['_id'=>'VITALS']);
+
 
 for($i=0;$i<5;$i++)
 {
-	
+
 
 	if(isset($_POST['vitals'][$i]))
 	{
@@ -34,26 +41,26 @@ for($i=0;$i<5;$i++)
 			{
 				$a = $_POST['v'][$i];
 				$b = $_POST['vitals'][$i];
-				$collection->updateOne(['_id' => 'VITALS'],['$set' => [$b => $a]]);
+				$collection->updateOne(['_id' => 'VITALS'],['$set' => [$b => encrypt($a)]]);
 			}
 	}
 }
 	if(isset($_POST['a'][0]))
 		{
 			$a = $_POST['a'][0];
-			$collection->updateOne(['_id' => 'VITALS'],['$set' => ['icterus' =>$a]]);
+			$collection->updateOne(['_id' => 'VITALS'],['$set' => ['icterus' => encrypt($a)]]);
 		}
 	if(isset($_POST['a'][1]))
 	{
 		$a = $_POST['a'][1];
-		$collection->updateOne(['_id' => 'VITALS'],['$set' => ['pallor' => $a]]);
+		$collection->updateOne(['_id' => 'VITALS'],['$set' => ['pallor' => encrypt($a)]]);
 	}
 	if(isset($_POST['a'][2]))
 	{
 		$a = $_POST['a'][2];
-		$collection->updateOne(['_id' => 'VITALS'],['$set' => ['finger clubbing' => $a]]);
+		$collection->updateOne(['_id' => 'VITALS'],['$set' => ['finger clubbing' => encrypt($a)]]);
 	}
-$collection->updateOne(['_id' => 'VITALS'],['$set' => ['height' => $_POST['height'],'weight'=>$_POST['weight']]]);
+$collection->updateOne(['_id' => 'VITALS'],['$set' => ['height' => encrypt($_POST['height']), 'weight'=> encrypt($_POST['weight'])]]);
 
 $k = 0;
 for($i=0;$i<4;$i++)
@@ -86,8 +93,8 @@ for($i=0;$i<4;$i++)
 		if(isset($_POST[$str]))
 		{
 			$str1 = "t".$i;
-			$collection->updateOne(['_id' => 'COMPLAINTS'],['$set' => [strtoupper($_POST[$str]) => strtoupper($_POST[$str1])]]);
+			$collection->updateOne(['_id' => 'COMPLAINTS'],['$set' => [strtoupper($_POST[$str1]) => encrypt($_POST[$str])]]);
 		}
-	}		
+	}
 
 ?>

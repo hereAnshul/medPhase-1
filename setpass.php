@@ -1,10 +1,9 @@
 <?php
 session_start();
 include 'connect.php';
-
 if(isset($_POST['gotp']))
 {
-    #api here
+    ###################################api here######################################
 	  $_SESSION['otp'] = 123456;
 	  echo "<script> alert('Otp sent to registered mobile number');
 		location = 'setpass.php';

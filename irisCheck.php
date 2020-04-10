@@ -4,6 +4,7 @@
 session_start();
 error_reporting(0);
 include 'connect.php';
+include 'security.php';
 $casesheet = $_SESSION['caseid'];
 $var = "eye_".$_SESSION['hospital_id'];
 $eye = $client->$var;
@@ -26,7 +27,7 @@ for($i=0;$i<6;$i++)
 			$k = 1;
 		}
 		$str1 = "ip".$m;
-		$collection->updateOne(['_id'=>'IRIS'], ['$set' => [$str1 => strtoupper($_POST[$str])]]);
+		$collection->updateOne(['_id'=>'IRIS'], ['$set' => [$str1 => encrypt($_POST[$str])]]);
 		$m+=1;
 	}
 }
@@ -46,7 +47,7 @@ for($i=0;$i<6;$i++)
 			$k = 1;
 		}
 		$str1 = "pp".$m;
-		$collection->updateOne(['_id'=>'PUPIL'], ['$set' => [$str1 => strtoupper($_POST[$str])]]);
+		$collection->updateOne(['_id'=>'PUPIL'], ['$set' => [$str1 => encrypt($_POST[$str])]]);
 		$m+=1;
 	}
 }
@@ -66,7 +67,7 @@ for($i=0;$i<5;$i++)
 			$k = 1;
 		}
 		$str1 = "lp".$m;
-		$collection->updateOne(['_id'=>'LENS'], ['$set' => [$str1 => strtoupper($_POST[$str])]]);
+		$collection->updateOne(['_id'=>'LENS'], ['$set' => [$str1 => encrypt($_POST[$str])]]);
 		$m+=1;
 	}
 }
@@ -86,7 +87,7 @@ for($i=0;$i<4;$i++)
 			$k = 1;
 		}
 		$str1 = "ac".$m;
-		$collection->updateOne(['_id'=>'ANTERIROCHAMBER'], ['$set' => [$str1 => strtoupper($_POST[$str])]]);
+		$collection->updateOne(['_id'=>'ANTERIROCHAMBER'], ['$set' => [$str1 => encrypt($_POST[$str])]]);
 		$m+=1;
 	}
 }
@@ -98,15 +99,15 @@ if (empty($chk)) {
 }
 
 if(isset($_POST['visualacuity'])){
-  $collection->updateOne(["_id"=>'CORNEA'], ['$set' => ['visualacuity' => strtoupper($_POST['visualacuity'])]]);
+  $collection->updateOne(["_id"=>'CORNEA'], ['$set' => ['visualacuity' => encrypt($_POST['visualacuity'])]]);
 }
 
 if(isset($_POST['corneaShape'])){
-  $collection->updateOne(["_id"=>'CORNEA'], ['$set' => ['corneaShape' => strtoupper($_POST['corS'])]]);
+  $collection->updateOne(["_id"=>'CORNEA'], ['$set' => ['corneaShape' => encrypt($_POST['corS'])]]);
 }
 
 if(isset($_POST['curvature'])){
-  $collection->updateOne(["_id"=>'CORNEA'], ['$set' => ['curvature' => strtoupper($_POST['curve'])]]);
+  $collection->updateOne(["_id"=>'CORNEA'], ['$set' => ['curvature' => encrypt($_POST['curve'])]]);
 }
 
 $m = 0;
@@ -118,18 +119,18 @@ for($i=0;$i<3;$i++)
 	if(isset($_POST[$str]))
 	{
 		$str1 = "tp".$m;
-		$collection->updateOne(['_id'=>'CORNEA'], ['$set' => ['thickness' => strtoupper($_POST[$str])]]);
+		$collection->updateOne(['_id'=>'CORNEA'], ['$set' => ['thickness' => encrypt($_POST[$str])]]);
 		$m+=1;
 	}
 }
 
 
 if(isset($_POST['vascularization'])){
-  $collection->updateOne(["_id"=>'CORNEA'], ['$set' => ['vascularization' => strtoupper('exist')]]);
+  $collection->updateOne(["_id"=>'CORNEA'], ['$set' => ['vascularization' => encrypt('exist')]]);
 }
 
 if(isset($_POST['deposits'])){
-  $collection->updateOne(["_id"=>'CORNEA'], ['$set' => ['deposits' => strtoupper($_POST['dt'])]]);
+  $collection->updateOne(["_id"=>'CORNEA'], ['$set' => ['deposits' => encrypt($_POST['dt'])]]);
 }
 
 header('Location:page12.php');

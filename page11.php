@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if($_SESSION["docid"]==""){
   echo "<script> alert('Bad Bad Boy');
       location = '404.php';
@@ -58,57 +59,57 @@ require 'connect.php';
 
 
     <h4>Iris</h4>
-	  	<div><input type="checkbox" name="ip0" value="similarappearances"> Similar Appearances<br/></div>
-	  	<div><input type="checkbox" name="ip1" value="betweeneyes"> Between Eyes<br/></div>
-	  	<div><input type="checkbox" name="ip2" value="lesious"> Lesious<br/></div>
-	  	<div><input type="checkbox" name="ip3" value="tears"> Tears<br/></div>
-		  <div><input type="checkbox" name="ip4" value="laceration"> Laceration<br/></div>
-		  <div><input type="checkbox" name="ip5" value="prolapse"> Prolapse<br/></div>
+	  	<div><input type="checkbox" name="ip0" value="SimilarAppearances"> Similar Appearances<br/></div>
+	  	<div><input type="checkbox" name="ip1" value="BetweenEyes"> Between Eyes<br/></div>
+	  	<div><input type="checkbox" name="ip2" value="Lesious"> Lesious<br/></div>
+	  	<div><input type="checkbox" name="ip3" value="Tears"> Tears<br/></div>
+		  <div><input type="checkbox" name="ip4" value="Laceration"> Laceration<br/></div>
+		  <div><input type="checkbox" name="ip5" value="Prolapse"> Prolapse<br/></div>
 		<br/><hr>
 
       <h4>Pupils</h4>
-      <div><input type="checkbox" name="pp0" value="variablesizes" > Variable Sizes<br/></div>
-      <div><input type="checkbox" name="pp1" value="reacttolight"> React To Light<br/></div>
-	    <div><input type="checkbox" name="pp2" value="shift"> Position Shift<br/></div>
-	    <div><input type="checkbox" name="pp3" value="othershape"> Other Shape<br/></div>
-	    <div><input type="checkbox" name="pp4" value="dilated and constricted"> Dilated and Constricted<br/></div>
-	    <div><input type="checkbox" name="pp5" value="abnormal"> Pulpillary Reflex<br/></div>
+      <div><input type="checkbox" name="pp0" value="VariableSizes" > Variable Sizes<br/></div>
+      <div><input type="checkbox" name="pp1" value="ReactToLight"> React To Light<br/></div>
+	    <div><input type="checkbox" name="pp2" value="Shift"> Position Shift<br/></div>
+	    <div><input type="checkbox" name="pp3" value="OtherShape"> Other Shape<br/></div>
+	    <div><input type="checkbox" name="pp4" value="DilatedConstricted"> Dilated and Constricted<br/></div>
+	    <div><input type="checkbox" name="pp5" value="PulpillaryReflex"> Pulpillary Reflex<br/></div>
     <br/><hr>
 
     <h4>Lens</h4>
       <div><input type="checkbox" name="lp0" value="DullOrAbsentRedReflex"> Dull or Absent Red Reflex<br/></div>
       <div><input type="checkbox" name="lp1" value="WhitePupil"> White Pupil<br/></div>
-      <div><input type="checkbox" name="lp2" value="shadow in red reflex" > Shadow in Red Reflex<br/></div>
-      <div><input type="checkbox" name="lp3" value="position"> Position<br/></div>
-      <div><input type="checkbox" name="lp4" value="opacities"> Opacities<br/></div>
+      <div><input type="checkbox" name="lp2" value="ShadowInRedReflex" > Shadow in Red Reflex<br/></div>
+      <div><input type="checkbox" name="lp3" value="Position"> Position<br/></div>
+      <div><input type="checkbox" name="lp4" value="Opacities"> Opacities<br/></div>
     <br/><hr>
       <h4>Anterior Chamber</h4>
-      <div><input type="checkbox" name="ac0" value="shallow and deep"> Shallow and Deep<br/></div>
-      <div><input type="checkbox" name="ac1" value="hyphaema"> Hyphaema<br/></div>
-      <div><input type="checkbox" name="ac2" value="hypopyon"> Hypopyon<br/></div>
-      <div><input type="checkbox" name="ac3" value="intraocularlens"> Intraocularlens(IOL)<br/></div>
+      <div><input type="checkbox" name="ac0" value="ShallowDeep"> Shallow and Deep<br/></div>
+      <div><input type="checkbox" name="ac1" value="Hyphaema"> Hyphaema<br/></div>
+      <div><input type="checkbox" name="ac2" value="Hypopyon"> Hypopyon<br/></div>
+      <div><input type="checkbox" name="ac3" value="Intraocularlens"> Intraocularlens(IOL)<br/></div>
         <br/><hr>
 
       <h4>Cornea</h4>
        <div>Visual Acuity <input type="text" name="visualacuity" placeholder="-/-" pattern="[0-9]/[0-9]" ><br/></div>
        <div><input type="checkbox" value="shape" name="corneaShape" onclick="changeClass1()"> Shape</div>
         <ul class="nested" id="main1">
-          <div><input type="radio" name="corS" value="ellipticalHypotony"> Elliptical Hypotony<br/></div>
-          <div><input type="radio" name="corS" value="conicalKeratoconous"> Conical Keratoconous<br/></div>
-		      <div><input type="radio" name="corS" value="quadilateralPhthisis"> Quadilateral Phthisis<br/></div>
+          <div><input type="radio" name="corS" value="EllipticalHypotony"> Elliptical Hypotony<br/></div>
+          <div><input type="radio" name="corS" value="ConicalKeratoconous"> Conical Keratoconous<br/></div>
+		      <div><input type="radio" name="corS" value="QuadilateralPhthisis"> Quadilateral Phthisis<br/></div>
         </ul>
 
        <div><input type="checkbox" value="curvature" name="curvature" onclick="changeClass3()"> Curvature</div>
         <ul class="nested" id="main3">
-          <div><input type="radio" name="curve" value="increase"> Increase<br/></div>
+          <div><input type="radio" name="curve" value="Increase"> Increase<br/></div>
           <div><input type="radio" name="curve" value="Decrease"> Decrease<br/></div>
         </ul>
 
 	   <div><input type="checkbox" value="thickness" name="thickness" onclick="changeClass4()"> Thickness</div>
         <ul class="nested" id="main4">
-          <div><input type="checkbox" name="tp0" value="corneaedema"> Cornea Edema<br/></div>
-          <div><input type="checkbox" name="tp1" value="filamentarykeratopathy"> Filamentary Keratopathy<br/></div>
-		      <div><input type="checkbox" name="tp2" value="keratitits"> Keratitits</div>
+          <div><input type="checkbox" name="tp0" value="CorneaEdema"> Cornea Edema<br/></div>
+          <div><input type="checkbox" name="tp1" value="FilamentaryKeratopathy"> Filamentary Keratopathy<br/></div>
+		      <div><input type="checkbox" name="tp2" value="Keratitits"> Keratitits</div>
         </ul>
     <!-- REMOVED THE ONCLICK ON KERATITITS
 
@@ -142,8 +143,8 @@ require 'connect.php';
 	  <div><input type="checkbox" name="deposits" onclick="changeClass8()"> Deposits</div>
         <ul class="nested" id="main8">
           <div><input type="radio" name="dt" value="Membranous"> Membranous<br/></div>
-          <div><input type="radio" name="dt" value="Pseudomembranous"> Pseudomembranous<br/></div>
-		      <div><input type="radio" name="dt" value="nonmembranous"> Non Membranous<br/></div>
+          <div><input type="radio" name="dt" value="PseudoMembranous"> Pseudomembranous<br/></div>
+		      <div><input type="radio" name="dt" value="NonMembranous"> Non Membranous<br/></div>
         </ul>
 	</ul>
     <br/>

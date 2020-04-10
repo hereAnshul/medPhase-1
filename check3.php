@@ -1,11 +1,16 @@
 <?php
+
+//session and includes
 session_start();
 error_reporting(0);
 include 'connect.php';
+include 'security.php';
 $casesheet = $_SESSION['caseid'];
 $var = "eye_".$_SESSION['hospital_id'];
 $eye = $client->$var;
 $collection = $eye->$casesheet;
+
+
 if(isset($_POST['next2']))
 {
 	$k = 0;
@@ -19,7 +24,7 @@ if(isset($_POST['next2']))
 				$k = 1;
 			}
 			$str = "a".$i;
-			$collection->updateOne(['_id'=>'SITE OF PAIN'],['$set' => [$_POST['eyeache'][$i] => $_POST[$str]]]);
+			$collection->updateOne(['_id'=>'SITE OF PAIN'],['$set' => [$_POST['eyeache'][$i] => encrypt($_POST[$str])]]);
 		}
 	}
 	$r = 0;
@@ -35,19 +40,19 @@ if(isset($_POST['next2']))
 				$r = 1;
 			}
 			$abc = "a".$m;
-			$collection->updateOne(['_id'=>'ASSOCIATED SYMPTOMS'],['$set' => [ $abc => $_POST[$str]]]);
+			$collection->updateOne(['_id'=>'ASSOCIATED SYMPTOMS'], ['$set' => [ $abc => encrypt($_POST[$str])]]);
 			$m+=1;
 		}
 	}
 
 	if(isset($_POST['onset']))
 	{
-		$collection->updateOne(['_id'=>'SITE OF PAIN'],['$set' => ['onset' => $_POST['onset']]]);
+		$collection->updateOne(['_id'=>'SITE OF PAIN'],['$set' => ['onset' => encrypt($_POST['onset'])]]);
 	}
 
 	if(isset($_POST['b']))
 	{
-		$collection->updateOne(['_id'=>'SITE OF PAIN'],['$set' => ['character' => $_POST['b']]]);
+		$collection->updateOne(['_id'=>'SITE OF PAIN'],['$set' => ['character' => encrypt($_POST['b'])]]);
 	}
 
 	if(isset($_POST['c0'])||isset($_POST['c1'])||isset($_POST['c2']))
@@ -57,19 +62,19 @@ if(isset($_POST['next2']))
 
 	if(isset($_POST['continuous']))
 	{
-		$collection->insertOne(['_id' => 'TIMING',$_POST['continuous']=>'True']);
+		$collection->insertOne(['_id' => 'TIMING', $_POST['continuous']=>encrypt('True')]);
 	}
 	else
 	{
-		$collection->insertOne(['_id' => 'TIMING','episodic' => $_POST['episodic']]);
+		$collection->insertOne(['_id' => 'TIMING','episodic' => encrypt($_POST['episodic'])]);
 	}
 	if(isset($_POST['frequency']))
 	{
-		$collection->updateOne(['_id'=>'TIMING'],['$set' => ['frequency' => $_POST['frequency']]]);
+		$collection->updateOne(['_id'=>'TIMING'],['$set' => ['frequency' => encrypt($_POST['frequency'])]]);
 	}
 	if(isset($_POST['duration']))
 	{
-		$collection->updateOne(['_id'=>'TIMING'],['$set' => ['duration' => $_POST['duration']]]);
+		$collection->updateOne(['_id'=>'TIMING'],['$set' => ['duration' => encrypt($_POST['duration'])]]);
 	}
 }
 
