@@ -17,9 +17,9 @@ if(isset($_POST['register']))
       location = 'register_doc.php';
           </script>";
   }
-  $hospital_id = $_POST['hid'];
+  $hospital_id = $_POST['hospital_id'];
   $cursor = $collection->find();
-  $collection->insertOne(['_id'=>(string)$id,'docname'=>$name,'password'=>$pass, 'hospital'=>$hospital_id]);
+  $collection->insertOne(['_id'=>(string)$id,'docname'=>$name,'password'=>$pass, 'hospital_id'=>$hospital_id]);
     echo "<script> alert('Welcome Dr. $name, Registeration Complete.');
           location = 'index.php';
         </script>";
@@ -37,7 +37,7 @@ if(isset($_POST['register']))
       <input type="text" name="name" placeholder="Enter Name"/>
       <input type="password" name="password" placeholder="Enter Password">
       <input type="password" name="rpass" placeholder="Re-Enter Password">
-      <input type="text" name="hid" placeholder="Enter Hospital">
+      <input type="text" name="hospital_id" placeholder="Enter Hospital">
       <input type = "submit" id = "button" name = "register" value = "register">
       <p class="message">Already registered? <a href="index.php">Back</a></p>
     </form>
