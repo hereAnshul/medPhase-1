@@ -40,6 +40,7 @@ if(isset($_POST['login']))
   if(strcmp($decrypt, $pass)==0){
       $_SESSION['p_id'] = $id;
       $_SESSION['patient_login'] = 1;
+      $_SESSION['passkey'] = $decrypt;
   	  echo '<script>location="welcome.php"</script>';
   }else
   {

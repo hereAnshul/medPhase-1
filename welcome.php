@@ -105,9 +105,9 @@ require 'connect.php';
 
               <ul class="list-unstyled mt-3 mb-4">
                 <li>Consult a doctor, understand and then give consent.
-          You can un-subscribe from it whenever you like.</li>
+                </li>
               </ul>
-              <a style="text-decoration:none" href = "#"><button type="button" class="btn btn-lg btn-block btn-primary">You have my CONSENT</button></a>
+              <a style="text-decoration:none" href = "consent.php" onclick="window.open('consent.php', 'newwindow', 'width=800, height=600'); return false;"><button type="button" class="btn btn-lg btn-block btn-primary">You have my CONSENT</button></a>
               <!-- yaha pe kuch dekhna hoga..on click maybe form jaisa kuch..term and condirtion type and multi factor check k baad.
               in the end..
               hoga ye ki ye button mine kr dega block.. aur phir chain update kr dega..
@@ -116,8 +116,6 @@ require 'connect.php';
 
             </div>
           </div>
-
-
       </div>
 
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
